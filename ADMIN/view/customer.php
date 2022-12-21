@@ -203,7 +203,7 @@
         </button>
       </div>
       <div class="modal-body">
-      <form action="./../../controller/UserController.php"  method="post">
+      <form action="../controller/UserController.php"  method="post">
       <input type="hidden" name="user_action" value="user_create"/>
 
           <input

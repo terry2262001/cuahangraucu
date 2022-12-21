@@ -26,25 +26,51 @@ class UserController
                 break;
             case "user_login":
                 $userLogin_txt_email = $_POST["email"];
-                $userLogin_txt_password = md5( $_POST["password"]);
-           
+                $userLogin_txt_password = md5($_POST["password"]);
 
-              //  if ($this->dataValid($userLogin_txt_email, $userLogin_txt_password)) {
 
-                    //  $user = isUserValid($userLogin_txt_email, $userLogin_txt_password, $arrUsers);
-                    $user = new UserModel("", $userLogin_txt_password, $userLogin_txt_email, "", "", "", 0);
-                    if ($user->getPassword()==$userLogin_txt_password && $user->getEmail() == $userLogin_txt_email) {
-                        session_start(); 
-                        $_SESSION["email"] = $userLogin_txt_email;
-                        $_SESSION["is_login"] = true;
-                        header("Location: ../controller/UserController.php");
-                    }
+                //  if ($this->dataValid($userLogin_txt_email, $userLogin_txt_password)) {
+
+                //  $user = isUserValid($userLogin_txt_email, $userLogin_txt_password, $arrUsers);
+                $user = new UserModel("", $userLogin_txt_password, $userLogin_txt_email, "", "", "", 0);
+                $this->getUser($user);
+                var_dump($this->getUser($user));
+                $arrrUser = array();
+                $arrrUser = $this->getUser($user);
+                $user_02 = new UserModel("", "", "", "", "", "", 0);
+                $user_02 = (object) $arrrUser();
+               var_dump($user_02);
+                // $user444 = new UserModel($arrrUser);
+                // $userDetail = null;
+                // foreach ($arrrUser as $user1) {
+                //      foreach($user1 as $key=>$value){
+                //         var_dump($value);
+
+                //      }
+                    
+                
+                 
+
+                //   }
+
+        
+                exit();
+                if ($user->getPassword() == $userLogin_txt_password && $user->getEmail() == $userLogin_txt_email) {
+                    session_start();
+                    $_SESSION["username"] = $this->getUser($user)->getUsername;
+                    $_SESSION["is_login"] = true;
+
+
+                    //  header("Location: ../controller/UserController.php");
+                    header("Location: ../view/index.php");
+                }
                 // } else {
                 //     echo " Du Lieu Khong Hop Le !";
                 // }
                 break;
             default:
-                $this->showUserPage();
+                //$this->showUserPage();
+                header("Location: ../view/index.php");
                 break;
 
         }
@@ -54,7 +80,7 @@ class UserController
     public function dataValid($email, $pass)
     {
         $validData = new DataValidationUtils();
-        return $validData->checkEmailValid($email);// && $validData->checkPasswordValid($pass);
+        return $validData->checkEmailValid($email); // && $validData->checkPasswordValid($pass);
     }
     public function insertUser($user)
     {
@@ -73,7 +99,7 @@ class UserController
     }
     public function getUser($user)
     {
-       return  $user->getUser();
+        return $user->getUser();
 
     }
     public function getAllUser($user)
@@ -84,8 +110,8 @@ class UserController
     public function showUserPage()
     {
         $user = new UserModel("", "", "", "", "", "", 0);
-        $data = $this->getAllUser($user);
-        include_once '../view/customer.php';
+        $data = $this->getUser($user);
+        include_once '../view/index.php';
 
     }
 

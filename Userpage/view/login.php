@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./css/login.css" />
+    <link rel="stylesheet" href="../css/login.css" />
   </head>
   <body>
     
@@ -14,25 +14,22 @@
         <h1>ĐĂNG NHẬP</h1>
       </div>
       <div id="form_dangki">
-        <form action="../PHP/index_admin_controller.php" method="post">
-          <input
-            type="text"
-            placeholder="Usename"
-            name="username"
+        <form action="../../controller/UserController.php" method="post">
+        <input type="hidden" name="user_action" value="user_login"/>
+        <input
+            type="email"
+            placeholder="Email"
+            name="email"
             class="margin-top20"
           />
+        
           <input    
             type="password"
             placeholder="Password"
             name="password"
             class="margin-top20"
           />
-          <input
-            type="email"
-            placeholder="Email"
-            name="email"
-            class="margin-top20"
-          />
+        
         <small style="color:red">
             <?php
             session_start();

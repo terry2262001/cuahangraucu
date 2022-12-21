@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -43,17 +46,18 @@
             <div class="header__cart__price">item: <span>$150.00</span></div>
         </div>
         <div class="humberger__menu__widget">
-            
+
             <div class="header__top__right__auth">
+
                 <a href="#"><i class="fa fa-user"></i> Login</a>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
                 <li class="active"><a href="./index.php">Home</a></li>
-              
+
                 <li><a href="#">Pages</a>
-                    <ul class="header__menu__dropdown">  
+                    <ul class="header__menu__dropdown">
                         <li><a href="./shoping-cart.php">Shoping Cart</a></li>
                         <li><a href="./blog-details.php">Blog Details</a></li>
                     </ul>
@@ -99,9 +103,24 @@
                                 <a href="#"><i class="fa fa-linkedin"></i></a>
                                 <a href="#"><i class="fa fa-pinterest-p"></i></a>
                             </div>
-                            
+
                             <div class="header__top__right__auth">
-                                <a href="./login.php"><i class="fa fa-user"></i> Login</a>
+                          
+                                <?php
+                               if (isset($_SESSION['username'])) {
+                               ?>
+                                <div class="d-flex justify-content-center align-items-center gap-2">
+                                    <a href="#" class=""><?= $_SESSION['username']; ?></a>
+                                    <a class="btn btn-warning ml-2" href="./logout.php">Log out</a>
+                                </div>
+                                <?php
+                               } else {
+                               ?>
+                                <a href="./login/php"><i class="fa fa-user"></i> Login</a>
+                                <?php
+                               }
+                               ?>
+
                             </div>
                         </div>
                     </div>
@@ -119,9 +138,9 @@
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="./index.php">Home</a></li>
-                           
+
                             <li><a href="#">Pages</a>
-                                <ul class="header__menu__dropdown">    
+                                <ul class="header__menu__dropdown">
                                     <li><a href="./shoping-cart.php">Shoping Cart</a></li>
                                     <li><a href="./blog-details.php">Blog Details</a></li>
                                 </ul>
@@ -131,7 +150,7 @@
                         </ul>
                     </nav>
                 </div>
-               
+
             </div>
             <div class="humberger__open">
                 <i class="fa fa-bars"></i>
@@ -145,7 +164,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
-                    
+
                 </div>
                 <div class="col-lg-9">
                     <div class="hero__search">
@@ -384,7 +403,7 @@
     <!-- Banner End -->
 
     <!-- Latest Product Section Begin -->
-    
+
     <!-- Latest Product Section End -->
 
     <!-- Blog Section Begin -->
@@ -505,9 +524,15 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="footer__copyright">
-                        <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
+                        <div class="footer__copyright__text">
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;
+                                <script>document.write(new Date().getFullYear());</script> All rights reserved | This
+                                template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a
+                                    href="https://colorlib.com" target="_blank">Colorlib</a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </p>
+                        </div>
                         <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
                     </div>
                 </div>
