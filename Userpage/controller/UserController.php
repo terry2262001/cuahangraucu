@@ -16,8 +16,11 @@ class UserController
                 $txt_email = $_POST["email"];
                 $txt_phone = $_POST["phone"];
                 $txt_tenkhachhang = $_POST["tenkhachhang"];
-                $user_02 = new UserModel($txt_username, $txt_password, $txt_email, $txt_phone, $txt_tenkhachhang,"", 0);
-               $data =  $this->insertUser($user_02);
+              
+                $user_02 = new UserModel($txt_username, $txt_password, $txt_email, $txt_phone, $txt_tenkhachhang,"", 0,0);
+              $data =  $this->insertUser($user_02);
+                
+           
                // var_dump($data);
                session_start();
                $_SESSION["username"] = $user_02->getUsername();
@@ -53,7 +56,7 @@ class UserController
                 //  if ($this->dataValid($userLogin_txt_email, $userLogin_txt_password)) {
 
                 //  $user = isUserValid($userLogin_txt_email, $userLogin_txt_password, $arrUsers);
-                $user = new UserModel("", $userLogin_txt_password, $userLogin_txt_email, "", "", "", 0);
+                $user = new UserModel("", $userLogin_txt_password, $userLogin_txt_email, "", "", "", 0,0);
                 $this->getUser($user);
                 $data = $this->getUser($user);
                 if(count($data)){

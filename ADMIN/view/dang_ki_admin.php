@@ -18,7 +18,7 @@
         <h1>ĐĂNG KÍ ADMIN</h1>
       </div>
       <div id="form_dangki">
-        <form action="../PHP/dangki_admin_controller.php" method="post">
+        <form action="../controller/UserController.php" method="post">
         <input
             type="text"
             placeholder="Tên admin"
@@ -57,7 +57,7 @@
             echo(!empty($_SESSION["err"]))?$_SESSION["err"]:"";
             ?>
         </small>  
-          <button type="submit" class="margin-top20">Đăng Ký Ngay</button>
+          <button type="submit" class="margin-top20" name="user_action" value="user_create">Đăng Ký Ngay</button>
         </form>
       </div>
       <div class="other margin-top20">

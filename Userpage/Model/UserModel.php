@@ -9,8 +9,9 @@ class UserModel
 	private $phone;
 	private $tenkhachhang;
 	private $status;
+	private $isAdmin;
 
-	public function __construct($uName, $uPass, $uEmail, $uPhone, $uTenKH, $uStatus,$uUserID)
+	public function __construct($uName, $uPass, $uEmail, $uPhone, $uTenKH, $uStatus,$uUserID,$uIsAdmin)
 	{
 		$this->username = $uName;
 		$this->password = $uPass;
@@ -19,6 +20,7 @@ class UserModel
 		$this->tenkhachhang = $uTenKH;
 		$this->status = $uStatus;
 		$this->userid = $uUserID;
+		$this->isAdmin = $uIsAdmin;
 
 
 	}
@@ -154,12 +156,10 @@ class UserModel
 	public function insertUser()
 	{
 		$dbConnect = new MySQLUtils();
-		$query = "INSERT INTO user(username, password, fullname, phone, status, email) VALUES (:username, :password, :fullname, :phone, :status, :email)";
-		$param = array(":username" => $this->getUsername(), ":password" => $this->getPassword(), ":fullname" => $this->getTenkhachhang(), ":phone" => $this->getPhone(), ":status" => $this->getStatus(), ":email" => $this->getEmail());
+		$query = "INSERT INTO user(username, password, fullname, phone, status, email,isAdmin) VALUES (:username, :password, :fullname, :phone, :status, :email,:isAdmin)";
+		$param = array(":username" => $this->getUsername(), ":password" => $this->getPassword(), ":fullname" => $this->getTenkhachhang(), ":phone" => $this->getPhone(), ":status" => $this->getStatus(), ":email" => $this->getEmail(),":isAdmin"=>$this->getIsAdmin());
 		$dbConnect->insertData($query, $param);
-	
-
-		
+		$dbConnect->disconnectDB();
 
 	}
 	public function getUser()
@@ -196,11 +196,20 @@ class UserModel
 		return $data;
 
 	}
+	// public function updateUser()
+	// {
+	// 	$dbConnect = new MySQLUtils();
+	// 	$query = "UPDATE user set username=:username, password=:password, fullname=:fullname, phone=:phone, status:=status, email:=email where userid:= userid";
+	// 	$param = array(":username" => $this->getUsername(), ":password" => $this->getPassword(), ":fullname" => $this->getTenkhachhang(), ":phone" => $this->getPhone(), ":status" => $this->getStatus(), ":email" => $this->getEmail(),":userid" => $this->getUserid());
+	// 	$dbConnect->updateData($query, $param);
+	// 	$dbConnect->disconnectDB();
+
+	// }
 	public function updateUser()
 	{
 		$dbConnect = new MySQLUtils();
-		$query = "UPDATE user set username=:username, password=:password, fullname=:fullname, phone=:phone, status:=status, email:=email where userid:= userid";
-		$param = array(":username" => $this->getUsername(), ":password" => $this->getPassword(), ":fullname" => $this->getTenkhachhang(), ":phone" => $this->getPhone(), ":status" => $this->getStatus(), ":email" => $this->getEmail(),":userid" => $this->getUserid());
+		$query = "UPDATE user set username=:username, password=:password where userid=:userid";
+		$param = array(":username" => $this->getUsername(), ":password" => $this->getPassword(),":userid" => $this->getUserid());
 		$dbConnect->updateData($query, $param);
 		$dbConnect->disconnectDB();
 
@@ -216,6 +225,26 @@ class UserModel
 
 	}
 	
+
+	/**
+	 * Get the value of isAdmin
+	 */ 
+	public function getIsAdmin()
+	{
+		return $this->isAdmin;
+	}
+
+	/**
+	 * Set the value of isAdmin
+	 *
+	 * @return  self
+	 */ 
+	public function setIsAdmin($isAdmin)
+	{
+		$this->isAdmin = $isAdmin;
+
+		return $this;
+	}
 }
 
 ?>

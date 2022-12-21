@@ -43,7 +43,7 @@
       <div class="other margin-top20">
         <p id="rules">
           Nếu bạn chưa có tài khoản hãy
-          <span><a href="../dangki.php">ĐĂNG KÍ</a></span>
+          <span><a href="../view/dangki.php">ĐĂNG KÍ</a></span>
         </p>
       </div>
     </nav>

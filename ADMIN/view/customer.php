@@ -132,7 +132,12 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_themuser">THÊM USER</button>  
+              <a  href="../view/userpage.php">
+
+                <button type="button" class="btn btn-primary" data-toggle="modal"> THÊM USER</button>  
+              </a>
+                
+              
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -156,8 +161,8 @@
                       echo '<td>'.$data[$i]["phone"].'</td>';
                       echo '<td>'.$data[$i]["email"].'</td>';
                       echo '<td>complete</td>';
-                      echo '<td><button onclick="" type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal_suauser">SỬA</button></td>';
-                      echo '<td><button onclick="" type="button" class="btn btn-danger">XÓA</button></td>';
+                      echo '<td><a href="../controller/UserController.php?action=edit&id='.$data[$i]["userid"].'"><button onclick="" type="button" class="btn btn-warning" data-toggle="modal" > SỬA</button></td>';
+                      echo '<td><a href="../controller/UserController.php?action=delete&id='.$data[$i]["userid"].'"><button onclick="" type="button" class="btn btn-danger">XÓA</button></td>';
                      
                       echo'</tr>';
 

@@ -110,7 +110,7 @@
                         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
 
                             <div class="info">
-                                <a class="d-block">Thêm User</a>
+                                <a class="d-block">Sửa thông tin người dùng</a>
                             </div>
                         </div>
                     </div>
@@ -124,7 +124,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Thêm Người Dùng</h1>
+                            <h1 class="m-0">Sữa Thông tin</h1>
                         </div>
                     </div>
                 </div>
@@ -140,36 +140,45 @@
                                     <!-- /.card-header -->
                                     <div class="card-body">
                                         <form action="../controller/UserController.php" method="post">
-                                            <input type="hidden" name="user_action" value="user_create" />
+                                            <!-- <input type="hidden" name="user_action" value="user_create" /> -->
+                                            <div class="form-group col-md-6">
+                                                <label for="inputAddress">UserID</label>
+                                                <input name="userid" type="text" class="form-control"
+                                                    id="inputAddress" value="<?php echo $data["userid"];?>" readonly placeholder="Phan Ngọc Sơn">
+                                            </div>
                                             <div class="form-group col-md-6">
                                                 <label for="inputAddress">Tên Khách Hàng</label>
                                                 <input name="tenkhachhang" type="text" class="form-control"
-                                                    id="inputAddress" placeholder="Phan Ngọc Sơn">
+                                                    id="inputAddress" value="<?php echo $data["fullname"];?>" placeholder="Phan Ngọc Sơn">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="inputAddress2">Số điện Thoại</label>
                                                 <input type="text" name="phone" class="form-control" id="inputAddress2"
-                                                    placeholder="0868990314">
+                                                    placeholder="0868990314" value="<?php echo $data["phone"];?>">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="inputCity">Username</label>
-                                                <input name="username" type="text" class="form-control" id="inputCity">
+                                                <input name="username" type="text" class="form-control" id="inputCity"
+                                                value="<?php echo $data["username"];?>">
                                             </div>
 
                                             <div class="form-group col-md-6">
                                                 <label for="inputEmail4">Email</label>
                                                 <input type="email" class="form-control" id="inputEmail4" name="email"
+                                                value="<?php echo $data["email"];?>"
                                                     placeholder="Email">
                                             </div>
 
                                             <div class="form-group col-md-6">
                                                 <label for="inputPassword4">Password</label>
-                                                <input type="password" name="password" class="form-control"
+                                                <input type="text" name="password" class="form-control"
+                                                value="<?php echo $data["password"];?>"
                                                     id="inputPassword4" placeholder="Password">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="inputPassword4">Status</label>
                                                 <input type="text" class="form-control" id="inputPassword4"
+                                                value="<?php echo $data["status"];?>"
                                                     name="status" placeholder="Online">
                                             </div>
 
@@ -178,14 +187,16 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="form-check">
+                                      
                                             <input class="form-check-input" name="isAdmin"  type="checkbox"
+                                            <?php echo $data["isAdmin"]==1?'checked':'';?>
                                                 id="gridCheck">
                                             <label class="form-check-label" for="gridCheck">
                                                 Là Admin
                                             </label>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Đăng Kí</button>
+                                    <button type="submit" name="user_action" value="user_update" class="btn btn-warning">Cập Nhật</button>
                                     </form>
                                     </table>
                                 </div>
