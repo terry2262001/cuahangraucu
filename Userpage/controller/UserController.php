@@ -15,63 +15,68 @@ class UserController
                 $txt_password = md5($_POST["password"]);
                 $txt_email = $_POST["email"];
                 $txt_phone = $_POST["phone"];
-                $txt_status = $_POST["status"];
                 $txt_tenkhachhang = $_POST["tenkhachhang"];
+                $user_02 = new UserModel($txt_username, $txt_password, $txt_email, $txt_phone, $txt_tenkhachhang,"", 0);
+               $data =  $this->insertUser($user_02);
+               // var_dump($data);
+               session_start();
+               $_SESSION["username"] = $user_02->getUsername();
+                header("Location: ../view/index.php");
+               
+
+                // if(!empty($txt_username) && !empty($txt_password) && !empty($txt_email)  &&!empty($txt_tenkhachhang)){
+                //      $user_02 = new UserModel($txt_username, $txt_password, $txt_email, $txt_phone, $txt_tenkhachhang,"", 0);
+                //      $this->insertUser($user_02);
+                //     var_dump($this->insertUser($user_02));
+                   
+                //     }else{
+                //     echo "cc";
+                
+                // }
+            
 
 
-                $user_02 = new UserModel($txt_username, $txt_password, $txt_email, $txt_phone, $txt_tenkhachhang, $txt_status, 0);
-                $this->insertUser($user_02);
-                header("Location: ../controller/UserController.php");
+             
+                // $mesage = $this->insertUser($user_02);
+              //  var_dump($this->insertUser($user_02));
+              ///  exit();
+                
+
+                // session_start();
+                //         $_SESSION["username"] = $user_02->getUsername();
+                //         header("Location: ../view/index.php");
 
                 break;
             case "user_login":
                 $userLogin_txt_email = $_POST["email"];
                 $userLogin_txt_password = md5($_POST["password"]);
-
-
                 //  if ($this->dataValid($userLogin_txt_email, $userLogin_txt_password)) {
 
                 //  $user = isUserValid($userLogin_txt_email, $userLogin_txt_password, $arrUsers);
                 $user = new UserModel("", $userLogin_txt_password, $userLogin_txt_email, "", "", "", 0);
                 $this->getUser($user);
-                var_dump($this->getUser($user));
-                $arrrUser = array();
-                $arrrUser = $this->getUser($user);
-                $user_02 = new UserModel("", "", "", "", "", "", 0);
-                $user_02 = (object) $arrrUser();
-               var_dump($user_02);
-                // $user444 = new UserModel($arrrUser);
-                // $userDetail = null;
-                // foreach ($arrrUser as $user1) {
-                //      foreach($user1 as $key=>$value){
-                //         var_dump($value);
-
-                //      }
-                    
-                
-                 
-
-                //   }
-
-        
-                exit();
-                if ($user->getPassword() == $userLogin_txt_password && $user->getEmail() == $userLogin_txt_email) {
-                    session_start();
-                    $_SESSION["username"] = $this->getUser($user)->getUsername;
-                    $_SESSION["is_login"] = true;
-
-
-                    //  header("Location: ../controller/UserController.php");
-                    header("Location: ../view/index.php");
+                $data = $this->getUser($user);
+                if(count($data)){
+                    for ($i = 0; $i < count($data); $i++) {
+                        //    $user2 = new UserModel($data[$i]["username"], $data[$i]["password"], $data[$i]["email"], $data[$i]["phone"], $data[$i]["fullname"],$data[$i]["fullname"]   ,0);
+                            $user->setUsername($data[$i]["username"]);
+                            $user->setPassword($data[$i]["password"]);
+                            $user->setEmail($data[$i]["email"]);
+                            $user->setUserid($data[$i]["userid"]);
+                        }
+                        session_start();
+                        $_SESSION["username"] = $user->getUsername();
+                        header("Location: ../view/index.php");
+                }else{
+                    header("Location: ../view/login.php");;
                 }
-                // } else {
-                //     echo " Du Lieu Khong Hop Le !";
-                // }
+              
                 break;
-            default:
-                //$this->showUserPage();
-                header("Location: ../view/index.php");
-                break;
+                
+            // default:
+            //     //$this->showUserPage();
+            //     header("Location: ../view/index.php");
+            //     break;
 
         }
 
@@ -84,7 +89,7 @@ class UserController
     }
     public function insertUser($user)
     {
-        $user->insertUser();
+       return $user->insertUser();
 
     }
     public function updateUser($user)
@@ -114,6 +119,7 @@ class UserController
         include_once '../view/index.php';
 
     }
+
 
 
 }

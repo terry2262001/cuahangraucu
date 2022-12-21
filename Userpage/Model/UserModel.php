@@ -157,7 +157,9 @@ class UserModel
 		$query = "INSERT INTO user(username, password, fullname, phone, status, email) VALUES (:username, :password, :fullname, :phone, :status, :email)";
 		$param = array(":username" => $this->getUsername(), ":password" => $this->getPassword(), ":fullname" => $this->getTenkhachhang(), ":phone" => $this->getPhone(), ":status" => $this->getStatus(), ":email" => $this->getEmail());
 		$dbConnect->insertData($query, $param);
-		$dbConnect->disconnectDB();
+	
+
+		
 
 	}
 	public function getUser()

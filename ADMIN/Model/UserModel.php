@@ -158,6 +158,9 @@ class UserModel
 		$param = array(":username" => $this->getUsername(), ":password" => $this->getPassword(), ":fullname" => $this->getTenkhachhang(), ":phone" => $this->getPhone(), ":status" => $this->getStatus(), ":email" => $this->getEmail());
 		$dbConnect->insertData($query, $param);
 		$dbConnect->disconnectDB();
+		
+	
+		
 
 	}
 	public function getUser()
@@ -167,7 +170,7 @@ class UserModel
 		$param = array(":userid" => $this->getUserid());
 		$user = $dbConnect->getData($query, $param);
 		$dbConnect->disconnectDB();
-		return $user;
+		
 
 		//getAllUser
 		// $query = "SELECT username, password, fullname, phone, status, email from user";

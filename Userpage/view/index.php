@@ -116,7 +116,7 @@ session_start();
                                 <?php
                                } else {
                                ?>
-                                <a href="./login/php"><i class="fa fa-user"></i> Login</a>
+                                <a href="./login.php"><i class="fa fa-user"></i> Login</a>
                                 <?php
                                }
                                ?>

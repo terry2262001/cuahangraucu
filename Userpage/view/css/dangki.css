@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    position: relative;
+    background-color: rgba(209, 189, 189, 0.1);
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  .margin-top20 {
+    margin-top: 20px;
+  }
+  
+  #container {
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 500px;
+    left: 50%;
+    background-color: #fff;
+  }
+  .name_form {
+    text-align: center;
+    color: #7fad39;
+    font-size: 25px;
+  }
+  #form_dangki input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #cccc;
+  }
+  #form_dangki button {
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #7fad39;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 5px;
+  }
+  #form_dangki button:hover {
+    background-color: #fff;
+    color: #7fad39;
+  }
+  #rules {
+    font-size: 15px;
+    text-align: center;
+  }
+  #rules span a {
+    color: #0f7ce4;
+  }
+  header {
+    background-color: #7fad39;
+    width: 100%;
+    text-align: center;
+  }
+  header img {
+    width: 180px;
+    text-align: center;
+    padding: 10px;
+  }
+  a {
+    text-decoration: none;
+  }
+  .error {
+    color: red;
+    font-family: verdana, Helvetica;
+  }
+  .backlogin a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    background-color: #7fad39;
+    margin: 50px 0;
+    padding: 10px;
+    color: #fff;
+    border-radius: 10px;
+  }
+  
+  .backlogin {
+    margin: 20px 0;
+    
+  }
+  
