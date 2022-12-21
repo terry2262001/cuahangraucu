@@ -49,7 +49,12 @@
           <a href="./index.php"><i class="fa fa-user" style="font-size:30px;color:black"></i></a>
           </a>
         </li>
-    </ul>
+        <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+   
   </nav>
   <!-- /.navbar -->
 
