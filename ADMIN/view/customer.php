@@ -73,7 +73,7 @@
 <div class="wrapper">
 
   <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
+  <div class="">
     <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
   </div>
 
@@ -140,8 +140,8 @@
                       <i class="fas fa-angle-left right"></i>
                     </p>
                   </a>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
+                  <ul class="">
+                    <li class="nav-item" style="list-style-type:none;">
                       <a href="../view/sanpham.php" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Sản phẩm</p>
