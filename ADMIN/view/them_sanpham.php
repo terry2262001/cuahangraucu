@@ -139,8 +139,8 @@
 
                                     <!-- /.card-header -->
                                     <div class="card-body" >
-                                        <form action="../controller/UserController.php" method="post" >
-                                            <input type="hidden" name="user_action" value="user_create" />
+                                        <form action="../controller/ProductController.php" method="post" enctype='multipart/form-data' >
+                                            <input type="hidden" name="product_action" value="product_create" />
                                             <div class="form-group col-md-6">
                                                 <label for="inputAddress">Tên sản phẩm</label>
                                                 <input name="name" type="text" class="form-control"
@@ -153,12 +153,12 @@
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="inputAddress3">Giá</label>
-                                                <input type="text" name="phone" class="form-control" id="inputAddress3"
+                                                <input type="text" name="price" class="form-control" id="inputAddress3"
                                                     placeholder="100.000VND">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="inputFile4">Image</label>
-                                                <input type="file" name="img" id="inputFile4">
+                                                <input type="file" name='filess[]' id="inputFile4">
                                             </div>
                                     </div>
                                   

@@ -1,19 +1,19 @@
 <?php 
 include_once '../until/MySQLUtil.php';
 
-    class Product{
+class Product
+{
     private $id;
     private $name;
     private $image;
     private $price;
-    private $number;
-    
-    
-        
+
+
+
 
     /**
      * Get the value of id
-     */ 
+     */
     public function getId()
     {
         return $this->id;
@@ -23,7 +23,7 @@ include_once '../until/MySQLUtil.php';
      * Set the value of id
      *
      * @return  self
-     */ 
+     */
     public function setId($id)
     {
         $this->id = $id;
@@ -32,7 +32,7 @@ include_once '../until/MySQLUtil.php';
 
     /**
      * Get the value of name
-     */ 
+     */
     public function getName()
     {
         return $this->name;
@@ -42,7 +42,7 @@ include_once '../until/MySQLUtil.php';
      * Set the value of name
      *
      * @return  self
-     */ 
+     */
     public function setName($name)
     {
         $this->name = $name;
@@ -52,7 +52,7 @@ include_once '../until/MySQLUtil.php';
 
     /**
      * Get the value of image
-     */ 
+     */
     public function getImage()
     {
         return $this->image;
@@ -62,7 +62,7 @@ include_once '../until/MySQLUtil.php';
      * Set the value of image
      *
      * @return  self
-     */ 
+     */
     public function setImage($image)
     {
         $this->image = $image;
@@ -72,7 +72,7 @@ include_once '../until/MySQLUtil.php';
 
     /**
      * Get the value of price
-     */ 
+     */
     public function getPrice()
     {
         return $this->price;
@@ -82,7 +82,7 @@ include_once '../until/MySQLUtil.php';
      * Set the value of price
      *
      * @return  self
-     */ 
+     */
     public function setPrice($price)
     {
         $this->price = $price;
@@ -90,21 +90,22 @@ include_once '../until/MySQLUtil.php';
         return $this;
     }
 
-    public function __construct($id,$name,$image,$price,$number){
+    public function __construct($id, $name, $image, $price)
+    {
         $this->id = $id;
         $this->name = $name;
         $this->image = $image;
         $this->price = $price;
-        $this->number = $number;
-        
+
     }
-    public function getAllProducts(){
+    public function getAllProducts()
+    {
         $data = NULL;
-		$dbConnect = new MySQLUtils();
-		$query = "SELECT id, name, image, price FROM product";
-		$data = $dbConnect->getAllData($query);
-		$dbConnect->disconnectDB();
-		return $data;
+        $dbConnect = new MySQLUtils();
+        $query = "SELECT id, name, image, price FROM product";
+        $data = $dbConnect->getAllData($query);
+        $dbConnect->disconnectDB();
+        return $data;
     }
     public function getProduct()
     {
@@ -115,26 +116,17 @@ include_once '../until/MySQLUtil.php';
         $dbConnect->disconnectDB();
         return $product[0];
     }
-
-
-    /**
-     * Get the value of number
-     */ 
-    public function getNumber()
+    public function insertProduct()
     {
-        return $this->number;
-    }
+        $dbConnect = new MySQLUtils();
+        $query = "INSERT INTO product(name,image,price) VALUES (:name,:image,:price)";
+        $param = array(":name" => $this->getName(), ":image" => $this->getImage(), ":price" => $this->getPrice());
+        $dbConnect->insertData($query, $param);
+        $dbConnect->disconnectDB();
 
-    /**
-     * Set the value of number
-     *
-     * @return  self
-     */ 
-    public function setNumber($number)
-    {
-        $this->number = $number;
+    }
+}
 
-        return $this;
-    }
-    }
+
+
 ?>
