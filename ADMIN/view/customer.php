@@ -98,7 +98,7 @@
           <?php
           } else {
           ?>
-             <a href="./index.php"><i class="fa fa-user" style="font-size:30px;color:black"></i></a>
+             <a href="../view/index.php"><i class="fa fa-user" style="font-size:30px;color:black"></i></a>
           <?php
           }
           ?>
@@ -117,7 +117,7 @@
     <!-- Brand Logo -->
     <div class="brand-link">
       <img src="./PICTURE/logo.png" alt="AdminHMK Logo" class="brand-image img-circle elevation-3" style="border-radius: 0;">
-      <a href="../view/trangchu.php"><span class="brand-text font-weight-light" style="font-weight: 1000!important;color: #c2c7d0;">OGANI </span></a>
+      <a href="#"><span class="brand-text font-weight-light" style="font-weight: 1000!important;color: #c2c7d0;">OGANI </span></a>
     <div>
           
     <!-- Sidebar -->

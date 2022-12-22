@@ -37,7 +37,7 @@ class UserController extends BaseController
                 if (!is_null($data)) {
                     session_start();
                     $_SESSION["username"] = $data["username"];
-                    header("Location: ../view/trangchu.php");
+                    header("Location: ../controller/UserController.php");
                 } else {
                     header("Location: ../view/index.php");
                     ;

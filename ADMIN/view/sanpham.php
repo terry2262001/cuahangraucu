@@ -83,7 +83,7 @@ if (!isset($_SESSION)) {
       <div class="brand-link">
         <img src="./PICTURE/logo.png" alt="AdminHMK Logo" class="brand-image img-circle elevation-3"
           style="border-radius: 0;">
-        <a href="trangchu.php"><span class="brand-text font-weight-light" style="font-weight: 1000!important;color: #c2c7d0;">OGANI
+        <a href="#"><span class="brand-text font-weight-light" style="font-weight: 1000!important;color: #c2c7d0;">OGANI
           </span></a>
         <div>
 
