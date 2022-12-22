@@ -95,13 +95,13 @@
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #D38566;">
+        <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #7fad39;">
             <!-- Brand Logo -->
             <div class="brand-link">
                 <img src="./PICTURE/logo.png" alt="AdminHMK Logo" class="brand-image img-circle elevation-3"
-                    style="opacity: .8">
+                    style="border-radius: 0;">
                 <a href="../view/trangchu.php"><span class="brand-text font-weight-light"
-                        style="font-weight: 1000!important;">OGANI </span></a>
+                        style="font-weight: 1000!important;color: #c2c7d0;">OGANI </span></a>
                 <div>
 
                     <!-- Sidebar -->
@@ -120,10 +120,10 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
-            <div class="content-header">
+            <div class="content-header" style="text-align: center;">
                 <div class="container-fluid">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
+                    <div class="row mb">
+                        <div class="col">
                             <h1 class="m-0"><?php echo $data["title"]?></h1>
                         </div>
                     </div>
@@ -134,12 +134,12 @@
 
                     <div class="row">
                         <div class="col-12">
-                            <div class="card">
+                            <div class="card" style="height:550px;width: 56%;padding: 40px; border-radius: 10px; margin: 0 auto; transform: translate(-50%, -50%); position: absolute; top: 300px; left: 50%;">
                                 <div class="card-header">
 
                                     <!-- /.card-header -->
                                     <div class="card-body">
-                                        <form action="../controller/UserController.php" method="post">
+                                        <form action="../controller/UserController.php" method="post" class="row">
                                             <!-- <input type="hidden" name="user_action" value="user_create" /> -->
                                             <div class="form-group col-md-6">
                                                 <label for="inputAddress">UserID</label>
@@ -197,6 +197,7 @@
                                         </div>
                                     </div>
                                     <button type="submit" name="user_action" value="user_update" class="btn btn-warning">Cập Nhật</button>
+                                    <a href="../controller/UserController.php" class="btn btn-danger">Đóng</a>
                                     </form>
                                     </table>
                                 </div>
@@ -206,13 +207,7 @@
                 </div>
             </section>
         </div>
-        <footer class="main-footer">
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-            All rights reserved.
-            <div class="float-right d-none d-sm-inline-block">
-                <b>Version</b> 3.2.0
-            </div>
-        </footer>
+       
 
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">

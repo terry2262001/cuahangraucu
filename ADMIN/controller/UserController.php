@@ -47,7 +47,7 @@ class UserController extends BaseController
                 $id = $_GET["id"];
                 $user = new UserModel("", "", " ", "", "", "", $id, 1);
                 $data["user"] = $this->getUser($user);
-                $data["title"] = "Sữa Thông Tin";
+                $data["title"] = "Sửa Thông Tin";
                 // include_once '../view/edituser.php';
                 return $this->view("edituser", $data);
                 break;

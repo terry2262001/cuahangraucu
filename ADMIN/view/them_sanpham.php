@@ -75,7 +75,7 @@
         </div>
 
         <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light" >
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -101,7 +101,7 @@
                 <img src="./PICTURE/logo.png" alt="AdminHMK Logo" class="brand-image img-circle elevation-3"
                     style="border-radius: 0;">
                 <a href="../view/trangchu.php"><span class="brand-text font-weight-light"
-                        style="font-weight: 1000!important;color: #c2c7d0">OGANI </span></a>
+                        style="font-weight: 1000!important;color:#c2c7d0;">OGANI </span></a>
                 <div>
 
                     <!-- Sidebar -->
@@ -110,7 +110,7 @@
                         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
 
                             <div class="info">
-                                <a class="d-block">Thêm User</a>
+                                <a class="d-block">Thêm Sản Phẩm</a>
                             </div>
                         </div>
                     </div>
@@ -118,13 +118,13 @@
         </aside>
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper" style="min-height: 600px !important;" >
+        <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <div class="content-header" style="text-align: center;">
-                <div class="container-fluid">
-                    <div class="row mb">
+                <div class="container-fluid" >
+                    <div class="row mb" >
                         <div class="col">
-                            <h1 class="m-0">Thêm Người Dùng</h1>
+                            <h1 class="m-0" >Thêm Sản Phẩm</h1>
                         </div>
                     </div>
                 </div>
@@ -134,59 +134,36 @@
 
                     <div class="row">
                         <div class="col-12">
-                            <div class="card" style="height:500px;width: 55%;padding: 40px; border-radius: 10px; margin: 0 auto; transform: translate(-50%, -50%); position: absolute; top: 250px; left: 50%;">
-                                <div class="card-header">
+                            <div class="card" style="width: 45%;padding: 40px; border-radius: 10px; margin: 0 auto; transform: translate(-50%, -50%); position: absolute; top: 300px; left: 50%;">
+                                <div class="card-header" >
 
                                     <!-- /.card-header -->
-                                    <div class="card-body">
-                                        <form action="../controller/UserController.php" method="post" class="row">
+                                    <div class="card-body" >
+                                        <form action="../controller/UserController.php" method="post" >
                                             <input type="hidden" name="user_action" value="user_create" />
                                             <div class="form-group col-md-6">
-                                                <label for="inputAddress">Tên Khách Hàng</label>
-                                                <input name="tenkhachhang" type="text" class="form-control"
-                                                    id="inputAddress" placeholder="Phan Ngọc Sơn">
+                                                <label for="inputAddress">Tên sản phẩm</label>
+                                                <input name="name" type="text" class="form-control"
+                                                    id="inputAddress" placeholder="Chuối">
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="inputAddress2">Số điện Thoại</label>
-                                                <input type="text" name="phone" class="form-control" id="inputAddress2"
-                                                    placeholder="0868990314">
+                                                <label for="inputAddress2">Mô tả</label>
+                                                <input type="text" name="mota" class="form-control" id="inputAddress2"
+                                                    placeholder="rất ngon">
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="inputCity">Username</label>
-                                                <input name="username" type="text" class="form-control" id="inputCity">
-                                            </div>
-
-                                            <div class="form-group col-md-6">
-                                                <label for="inputEmail4">Email</label>
-                                                <input type="email" class="form-control" id="inputEmail4" name="email"
-                                                    placeholder="Email">
-                                            </div>
-
-                                            <div class="form-group col-md-6">
-                                                <label for="inputPassword4">Password</label>
-                                                <input type="password" name="password" class="form-control"
-                                                    id="inputPassword4" placeholder="Password">
+                                                <label for="inputAddress3">Giá</label>
+                                                <input type="text" name="phone" class="form-control" id="inputAddress3"
+                                                    placeholder="100.000VND">
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="inputPassword4">Status</label>
-                                                <input type="text" class="form-control" id="inputPassword4"
-                                                    name="status" placeholder="Online">
+                                                <label for="inputFile4">Image</label>
+                                                <input type="file" name="img" id="inputFile4">
                                             </div>
-
-
-
                                     </div>
-                                    <div class="form-group">
-                                        <div class="form-check">
-                                            <input class="form-check-input" name="isAdmin"  type="checkbox"
-                                                id="gridCheck">
-                                            <label class="form-check-label" for="gridCheck">
-                                                Là Admin
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Đăng Kí</button>
-                                    <a href="../controller/UserController.php" class="btn btn-danger">Đóng</a>
+                                  
+                                    <button type="submit" class="btn btn-primary">Thêm</button>
+                                    <a href="./sanpham.php" class="btn btn-danger">Đóng</a>
                                     </form>
                                     </table>
                                 </div>
@@ -196,7 +173,7 @@
                 </div>
             </section>
         </div>
-        
+     
 
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
