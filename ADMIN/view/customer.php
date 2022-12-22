@@ -169,6 +169,7 @@
                     <th>Số điện thoại</th>
                     <th>Email</th>
                     <th>Status</th>
+                    <th style="text-align: center;">Action</th>
                   </tr>
                   </thead>
                   <tbody id="user_content">
@@ -181,9 +182,10 @@
                       echo '<td>'.$data["users"][$i]["phone"].'</td>';
                       echo '<td>'.$data["users"][$i]["email"].'</td>';
                       echo '<td>complete</td>';
-                      echo '<td><a href="../controller/UserController.php?action=edit&id='.$data["users"][$i]["userid"].'"><button onclick="" type="button" class="btn btn-warning" data-toggle="modal" > SỬA</button></td>';
-                      echo '<td><a href="../controller/UserController.php?action=delete&id='.$data["users"][$i]["userid"].'"><button onclick="" type="button" class="btn btn-danger">XÓA</button></td>';
-                     
+                      echo '<td>
+                      <a href="../controller/UserController.php?action=edit&id='.$data["users"][$i]["userid"].'"><button onclick="" type="button" class="btn btn-warning" data-toggle="modal" style=" margin-left: 20%; margin-right: 18%; width: auto;"> SỬA</button>
+                      <a href="../controller/UserController.php?action=delete&id='.$data["users"][$i]["userid"].'"><button onclick="" type="button" class="btn btn-danger">XÓA</button>
+                      </td>';
                       echo'</tr>';
 
                     }
