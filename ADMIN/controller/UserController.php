@@ -33,12 +33,12 @@ class UserController extends BaseController
 
                 //  $user = isUserValid($userLogin_txt_email, $userLogin_txt_password, $arrUsers);
                 $user = new UserModel("", $userLogin_txt_password, $userLogin_txt_email, "", "", "", 0, 0);
-                  $data = $this->getLoginUser($user);
+                $data = $this->getLoginUser($user);
                 if (!is_null($data)) {
                     session_start();
                     $_SESSION["username"] = $data["username"];
                     header("Location: ../view/trangchu.php");
-                }else {
+                } else {
                     header("Location: ../view/index.php");
                     ;
                 }
@@ -48,8 +48,8 @@ class UserController extends BaseController
                 $user = new UserModel("", "", " ", "", "", "", $id, 1);
                 $data["user"] = $this->getUser($user);
                 $data["title"] = "Sữa Thông Tin";
-               // include_once '../view/edituser.php';
-                return $this->view("edituser",$data);
+                // include_once '../view/edituser.php';
+                return $this->view("edituser", $data);
                 break;
             case "delete":
                 $id = $_GET["id"];
@@ -137,14 +137,14 @@ class UserController extends BaseController
 
 }
 
-$user_action = "";
-if (count($_POST) > 0) {
-    $user_action = $_POST["user_action"];
-} else if (count($_GET) > 0) {
-    $user_action = $_GET["action"];
-}
+    $user_action = "";
+    if (count($_POST) > 0) {
+        $user_action = $_POST["user_action"];
+    } else if (count($_GET) > 0) {
+        $user_action = $_GET["action"];
+    }
 
-$userControl = new UserController($user_action);
+    $userControl = new UserController($user_action);
 
 
 
