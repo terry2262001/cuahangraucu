@@ -1,5 +1,8 @@
 <?php
-session_start();
+if (!isset($_SESSION)) {
+    session_start();
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -24,13 +27,14 @@ session_start();
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/custom.css" type="text/css">
 </head>
 
 <body>
     <!-- Page Preloder -->
-    <div id="preloder">
+    <!-- <div id="preloder">
         <div class="loader"></div>
-    </div>
+    </div> -->
 
     <!-- Humberger Begin -->
     <div class="humberger__menu__overlay"></div>
@@ -58,7 +62,7 @@ session_start();
 
                 <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
-                        <li><a href="./shoping-cart.php">Shoping Cart</a></li>
+                          <li><a href="../controller/Ordercontroller.php?action=checkout">Shoping Cart</a></li>
                         <li><a href="./blog-details.php">Blog Details</a></li>
                     </ul>
                 </li>
@@ -101,7 +105,7 @@ session_start();
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
                                 <a href="#"><i class="fa fa-linkedin"></i></a>
-                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                                <a href="../controller/OrderController.php?action=clear">Clear Cart</i></a>
                             </div>
 
                             <div class="header__top__right__auth">
@@ -141,7 +145,7 @@ session_start();
 
                             <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="./shoping-cart.php">Shoping Cart</a></li>
+                                <li><a href="../controller/Ordercontroller.php?action=checkout">Shoping Cart</a></li>
                                     <li><a href="./blog-details.php">Blog Details</a></li>
                                 </ul>
                             </li>
@@ -258,21 +262,34 @@ session_start();
                 </div>
             </div>
             <div class="row featured__filter">
-                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                
+                for ($i = 0;$i< count($data["products"]);$i++){
+                    echo'<div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">';
+                    echo'<form ../controller/UserController.php" method="post">';
+                    echo'    <div class="featured__item">';
+                    echo'        <div class="featured__item__pic set-bg" data-setbg="'.$data["products"][$i]['image'].'">';
+                    echo'            <ul class="featured__item__pic__hover">';
+                    echo'                <li><a href="#"><i class="fa fa-heart"></i></a></li>';
+                    echo'                <li><a href="#"><i class="fa fa-retweet"></i></a></li>';
+                    echo'                <li><button class="custom" type="submit" name="order_action" value="add"><i class="fa fa-shopping-cart "></i></button></li>';
+                    echo'            </ul>';
+                    echo'        </div>';
+                    echo'        <div class="featured__item__text">';
+                    echo'            <h6><a href="#">'.$data["products"][$i]['name'].'</a></h6>';
+                    echo'            <h5>'.$data["products"][$i]['price'].' VNĐ</h5>';
+                    echo'        </div>';
+                    echo '<input type="hidden"  name="product_id" value="'.$data["products"][$i]['id'].'" />';
+                    echo'    </div>';
+                    echo '</form>';
+                    echo'</div>';
+
+                }
+                
+                
+               
+                ?>
+                
            
                   
                 </div>

@@ -1,9 +1,8 @@
 <?php
-// if (!isset($_SESSION)) {
-//     session_start();
+if (!isset($_SESSION)) {
+    session_start();
 
-// }
-session_start();
+}
 ?>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -70,7 +69,7 @@ session_start();
                 <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
                         <li><a href="./shop-details.php">Shop Details</a></li>
-                        <li><a href="./shoping-cart.php">Shoping Cart</a></li>
+                        <li><a href="../controller/Ordercontroller.php?action=checkout">Shoping Cart</a></li>
                         <li><a href="./checkout.php">Check Out</a></li>
                         <li><a href="./blog-details.php">Blog Details</a></li>
                     </ul>
@@ -161,7 +160,7 @@ session_start();
                             <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
 
-                                    <li><a href="./shoping-cart.php">Shoping Cart</a></li>
+                                    <li><a href="../controller/Ordercontroller.php?action=checkout">Shoping Cart</a></li>
 
                                     <li><a href="./blog-details.php">Blog Details</a></li>
                                 </ul>
@@ -175,7 +174,17 @@ session_start();
                     <div class="header__cart">
                         <ul>
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-bag"></i> 
+                            <?php
+                            if(!empty($_SESSION["cart_item"])){
+                                echo '<span>'.count($_SESSION["cart_item"]).'</span>';
+                            }else{
+                                echo '<span>0</span>';
+                            }
+                            ?>
+                        </a></li>
+                            <li><a href=" ../controller/OrderController.php?action=clear"><i>Clear cart</i></a></li>
+                         
                         </ul>
                         <div class="header__cart__price">item: <span>$150.00</span></div>
                     </div>
@@ -254,72 +263,34 @@ session_start();
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src="img/cart/cart-1.jpg" alt="">
-                                        <h5>Vegetable’s Package</h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        $55.00
-                                    </td>
-                                    <td class="shoping__cart__quantity">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                        $110.00
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <span class="icon_close"></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src="img/cart/cart-2.jpg" alt="">
-                                        <h5>Fresh Garden Vegetable</h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        $39.00
-                                    </td>
-                                    <td class="shoping__cart__quantity">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                        $39.99
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <span class="icon_close"></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src="img/cart/cart-3.jpg" alt="">
-                                        <h5>Organic Bananas</h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        $69.00
-                                    </td>
-                                    <td class="shoping__cart__quantity">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                        $69.99
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <span class="icon_close"></span>
-                                    </td>
-                                </tr>
+                                <?php
+                                foreach ($data["cart"] as $product) {
+
+
+                                    echo '<tr>';
+                                    echo '<td class="shoping__cart__item">';
+                                    echo '<img src="'.$product->getImage().'" alt="">';
+                                    echo '<h5>'.$product->getName().'</h5>';
+                                    echo '</td>';
+                                    echo '<td class="shoping__cart__price">';
+                                    echo '    '.$product->getPrice().'';
+                                    echo '</td>';
+                                    echo '<td class="shoping__cart__quantity">';
+                                    echo '<div class="quantity">';
+                                    echo '<div class="pro-qty">';
+                                    echo '<input type="text" value="'.$product->getNumber().'">';
+                                    echo ' </div>';
+                                    echo '</div>';
+                                    echo ' </td>';
+                                    echo '<td class="shoping__cart__total">';
+                                    echo '  '.$product->getPrice()* $product->getNumber().'';
+                                    echo ' </td>';
+                                    echo '<td class="shoping__cart__item__close">';
+                                    echo '<span class="icon_close"></span>';
+                                    echo '</td>';
+                                    echo ' </tr>';
+                                }
+                                ?>
                             </tbody>
                         </table>
                     </div>
