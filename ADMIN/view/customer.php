@@ -1,4 +1,9 @@
-
+<?php
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -83,7 +88,22 @@
     
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
+    <?php
+          if (isset($_SESSION['username'])) {
+          ?>
+          <div class="d-flex justify-content-center align-items-center gap-2">
+            <a href="#" class=""><?= $_SESSION['username']; ?></a>
+            <a class="btn btn-warning ml-2" href="../view/logout.php">Log out</a>
+          </div>
+          <?php
+          } else {
+          ?>
+             <a href="./index.php"><i class="fa fa-user" style="font-size:30px;color:black"></i></a>
+          <?php
+          }
+          ?>
       <li class="nav-item">
+     
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
@@ -106,7 +126,7 @@
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         
         <div class="info">
-          <a class="d-block">Danh Sách User</a>
+          <a class="d-block"><?php echo $data["title"]?></a>
         </div>
       </div>
     </div>
@@ -120,7 +140,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Danh sách User</h1>
+            <h1 class="m-0"><?php echo $data["title"]?></h1>
           </div>
         </div>
       </div>
@@ -154,15 +174,15 @@
                   <tbody id="user_content">
                     <?php
 
-                    for($i = 0 ; $i< count($data);$i++){
+                    for($i = 0 ; $i< count($data["users"]);$i++){
                       echo '<tr>';
-                      echo '<td class="serial">'.$data[$i]["userid"].'</td>';
-                      echo '<td>'.$data[$i]["fullname"].'</td>';
-                      echo '<td>'.$data[$i]["phone"].'</td>';
-                      echo '<td>'.$data[$i]["email"].'</td>';
+                      echo '<td class="serial">'.$data["users"][$i]["userid"].'</td>';
+                      echo '<td>'.$data["users"][$i]["fullname"].'</td>';
+                      echo '<td>'.$data["users"][$i]["phone"].'</td>';
+                      echo '<td>'.$data["users"][$i]["email"].'</td>';
                       echo '<td>complete</td>';
-                      echo '<td><a href="../controller/UserController.php?action=edit&id='.$data[$i]["userid"].'"><button onclick="" type="button" class="btn btn-warning" data-toggle="modal" > SỬA</button></td>';
-                      echo '<td><a href="../controller/UserController.php?action=delete&id='.$data[$i]["userid"].'"><button onclick="" type="button" class="btn btn-danger">XÓA</button></td>';
+                      echo '<td><a href="../controller/UserController.php?action=edit&id='.$data["users"][$i]["userid"].'"><button onclick="" type="button" class="btn btn-warning" data-toggle="modal" > SỬA</button></td>';
+                      echo '<td><a href="../controller/UserController.php?action=delete&id='.$data["users"][$i]["userid"].'"><button onclick="" type="button" class="btn btn-danger">XÓA</button></td>';
                      
                       echo'</tr>';
 

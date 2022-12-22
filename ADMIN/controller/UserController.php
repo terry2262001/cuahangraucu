@@ -3,9 +3,10 @@
 
 include_once '../Model/UserModel.php';
 include_once '../until/DataValidationUtils.php';
+include_once './BaseController.php';
 
 
-class UserController
+class UserController extends BaseController
 {
     public function __construct($user_action)
     {
@@ -28,28 +29,27 @@ class UserController
             case "user_login":
                 $userLogin_txt_email = $_POST["email"];
                 $userLogin_txt_password = md5($_POST["password"]);
-
-
                 //  if ($this->dataValid($userLogin_txt_email, $userLogin_txt_password)) {
 
                 //  $user = isUserValid($userLogin_txt_email, $userLogin_txt_password, $arrUsers);
-                $user = new UserModel("", $userLogin_txt_password, $userLogin_txt_email, "", "", "", 0, 1);
-                if ($user->getPassword() == $userLogin_txt_password && $user->getEmail() == $userLogin_txt_email) {
+                $user = new UserModel("", $userLogin_txt_password, $userLogin_txt_email, "", "", "", 0, 0);
+                  $data = $this->getLoginUser($user);
+                if (!is_null($data)) {
                     session_start();
-                    $_SESSION["email"] = $userLogin_txt_email;
-                    $_SESSION["is_login"] = true;
-                    header("Location: ../controller/UserController.php");
+                    $_SESSION["username"] = $data["username"];
+                    header("Location: ../view/trangchu.php");
+                }else {
+                    header("Location: ../view/index.php");
+                    ;
                 }
-                // } else {
-                //     echo " Du Lieu Khong Hop Le !";
-                // }
                 break;
             case "edit":
                 $id = $_GET["id"];
                 $user = new UserModel("", "", " ", "", "", "", $id, 1);
-                $data = $this->getUser($user);
-                include_once '../view/edituser.php';
-
+                $data["user"] = $this->getUser($user);
+                $data["title"] = "Sữa Thông Tin";
+               // include_once '../view/edituser.php';
+                return $this->view("edituser",$data);
                 break;
             case "delete":
                 $id = $_GET["id"];
@@ -61,7 +61,7 @@ class UserController
             case "user_update":
                 $txt_userid = $_POST["userid"];
                 $txt_username = $_POST["username"];
-                $txt_password = md5($_POST["password"]);
+                $txt_password = ($_POST["password"]);
                 $txt_email = $_POST["email"];
                 $txt_phone = $_POST["phone"];
                 $txt_status = $_POST["status"];
@@ -70,8 +70,13 @@ class UserController
                 if (isset($_POST["isAdmin"])) {
                     $txt_isAdmin = 1;
                 }
-                $user_02 = new UserModel($txt_username,$txt_password, $txt_email, $txt_phone, $txt_tenkhachhang, $txt_status, $txt_userid, $txt_isAdmin);
+                $user_02 = new UserModel($txt_username, $txt_password, $txt_email, $txt_phone, $txt_tenkhachhang, $txt_status, $txt_userid, $txt_isAdmin);
                 $this->updateUser($user_02);
+                session_start();
+                // if(isset($_SESSION['username'])){
+                //     unset($_SESSION['username']);
+                // } 
+                $_SESSION["username"] = $txt_username;
                 $this->showUserPage();
                 break;
             case "user_delete":
@@ -118,9 +123,15 @@ class UserController
     public function showUserPage()
     {
         $user = new UserModel("", "", "", "", "", "", 0, false);
-        $data = $this->getAllUser($user);
-        include_once '../view/customer.php';
+        $data["users"] = $this->getAllUser($user);
+        $data["title"] = "Danh Sách Người Dùng";
+        return $this->view('customer', $data);
+        //include_once '../view/customer.php';
 
+    }
+    public function getLoginUser($user)
+    {
+        return $user->getLoginUser();
     }
 
 

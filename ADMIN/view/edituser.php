@@ -110,7 +110,7 @@
                         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
 
                             <div class="info">
-                                <a class="d-block">Sửa thông tin người dùng</a>
+                                <a class="d-block"><?php echo $data["title"]?></a>
                             </div>
                         </div>
                     </div>
@@ -124,7 +124,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Sữa Thông tin</h1>
+                            <h1 class="m-0"><?php echo $data["title"]?></h1>
                         </div>
                     </div>
                 </div>
@@ -144,41 +144,41 @@
                                             <div class="form-group col-md-6">
                                                 <label for="inputAddress">UserID</label>
                                                 <input name="userid" type="text" class="form-control"
-                                                    id="inputAddress" value="<?php echo $data["userid"];?>" readonly placeholder="Phan Ngọc Sơn">
+                                                    id="inputAddress" value="<?php echo $data["user"]["userid"];?>" readonly placeholder="Phan Ngọc Sơn">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="inputAddress">Tên Khách Hàng</label>
                                                 <input name="tenkhachhang" type="text" class="form-control"
-                                                    id="inputAddress" value="<?php echo $data["fullname"];?>" placeholder="Phan Ngọc Sơn">
+                                                    id="inputAddress" value="<?php echo $data["user"]["fullname"];?>" placeholder="Phan Ngọc Sơn">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="inputAddress2">Số điện Thoại</label>
                                                 <input type="text" name="phone" class="form-control" id="inputAddress2"
-                                                    placeholder="0868990314" value="<?php echo $data["phone"];?>">
+                                                    placeholder="0868990314" value="<?php echo $data["user"]["phone"];?>">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="inputCity">Username</label>
                                                 <input name="username" type="text" class="form-control" id="inputCity"
-                                                value="<?php echo $data["username"];?>">
+                                                value="<?php echo $data["user"]["username"];?>">
                                             </div>
 
                                             <div class="form-group col-md-6">
                                                 <label for="inputEmail4">Email</label>
                                                 <input type="email" class="form-control" id="inputEmail4" name="email"
-                                                value="<?php echo $data["email"];?>"
+                                                value="<?php echo $data["user"]["email"];?>"
                                                     placeholder="Email">
                                             </div>
 
                                             <div class="form-group col-md-6">
                                                 <label for="inputPassword4">Password</label>
                                                 <input type="text" name="password" class="form-control"
-                                                value="<?php echo $data["password"];?>"
+                                                value="<?php echo $data["user"]["password"];?>"
                                                     id="inputPassword4" placeholder="Password">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="inputPassword4">Status</label>
                                                 <input type="text" class="form-control" id="inputPassword4"
-                                                value="<?php echo $data["status"];?>"
+                                                value="<?php echo $data["user"]["status"];?>"
                                                     name="status" placeholder="Online">
                                             </div>
 
@@ -189,7 +189,7 @@
                                         <div class="form-check">
                                       
                                             <input class="form-check-input" name="isAdmin"  type="checkbox"
-                                            <?php echo $data["isAdmin"]==1?'checked':'';?>
+                                            <?php echo $data["user"]["isAdmin"]==1?'checked':'';?>
                                                 id="gridCheck">
                                             <label class="form-check-label" for="gridCheck">
                                                 Là Admin

@@ -1,3 +1,10 @@
+<?php
+// if (!isset($_SESSION)) {
+//     session_start();
+
+// }
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -53,13 +60,13 @@
                 </ul>
             </div>
             <div class="header__top__right__auth">
-                <a href="#"><i class="fa fa-user"></i> Login</a>
+
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
                 <li class="active"><a href="./index.php">Home</a></li>
-                
+
                 <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
                         <li><a href="./shop-details.php">Shop Details</a></li>
@@ -119,7 +126,20 @@
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> Login</a>
+                                <?php
+                            if (isset($_SESSION['username'])) {
+                            ?>
+                                <div class="d-flex justify-content-center align-items-center gap-2">
+                                    <a href="#" class=""><?= $_SESSION['username']; ?></a>
+                                    <a class="btn btn-warning ml-2" href="./logout.php">Log out</a>
+                                </div>
+                                <?php
+                            } else {
+                            ?>
+                                <a href="./index.php"><i class="fa fa-user" style="font-size:24px;color:black"></i></a>
+                                <?php
+                            }
+                            ?>
                             </div>
                         </div>
                     </div>
@@ -137,12 +157,12 @@
                     <nav class="header__menu">
                         <ul>
                             <li><a href="./index.php">Home</a></li>
-                          
+
                             <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
-                               
+
                                     <li><a href="./shoping-cart.php">Shoping Cart</a></li>
-                                   
+
                                     <li><a href="./blog-details.php">Blog Details</a></li>
                                 </ul>
                             </li>
@@ -171,30 +191,30 @@
     <!-- Hero Section Begin -->
     <section class="hero hero-normal">
         <div class="container">
-                <div class="col-lg-9">
-                    <div class="hero__search">
-                        <div class="hero__search__form">
-                            <form action="#">
-                                <div class="hero__search__categories">
-                                    All Categories
-                                    <span class="arrow_carrot-down"></span>
-                                </div>
-                                <input type="text" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
-                            </form>
+            <div class="col-lg-9">
+                <div class="hero__search">
+                    <div class="hero__search__form">
+                        <form action="#">
+                            <div class="hero__search__categories">
+                                All Categories
+                                <span class="arrow_carrot-down"></span>
+                            </div>
+                            <input type="text" placeholder="What do yo u need?">
+                            <button type="submit" class="site-btn">SEARCH</button>
+                        </form>
+                    </div>
+                    <div class="hero__search__phone">
+                        <div class="hero__search__phone__icon">
+                            <i class="fa fa-phone"></i>
                         </div>
-                        <div class="hero__search__phone">
-                            <div class="hero__search__phone__icon">
-                                <i class="fa fa-phone"></i>
-                            </div>
-                            <div class="hero__search__phone__text">
-                                <h5>+65 11.188.888</h5>
-                                <span>support 24/7 time</span>
-                            </div>
+                        <div class="hero__search__phone__text">
+                            <h5>+65 11.188.888</h5>
+                            <span>support 24/7 time</span>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
     <!-- Hero Section End -->
@@ -396,9 +416,15 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="footer__copyright">
-                        <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
+                        <div class="footer__copyright__text">
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;
+                                <script>document.write(new Date().getFullYear());</script> All rights reserved | This
+                                template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a
+                                    href="https://colorlib.com" target="_blank">Colorlib</a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </p>
+                        </div>
                         <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
                     </div>
                 </div>

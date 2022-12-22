@@ -182,6 +182,18 @@ class UserModel
 		$dbConnect->disconnectDB();
 
 	}
+	public function getLoginUser(){
+		$dbConnect = new MySQLUtils();
+		$query = "SELECT userid, username, password, fullname, phone, status, email,isAdmin from user where email=:email and password=:password and isAdmin!=0"  ;
+		$param = array(":email" => $this->getEmail(),":password"=>$this->getPassword());
+		$user = $dbConnect->getData($query, $param);
+		$dbConnect->disconnectDB();
+		if($user){
+			return $user[0];
+
+		}
+	
+	}
 	public function getUser()
 	{
 		$dbConnect = new MySQLUtils();
@@ -249,7 +261,7 @@ class UserModel
 	public function deleteUser()
 	{
 		$dbConnect = new MySQLUtils();
-		$query = "DELETE from user where userid=:userid";
+		$query = "DELETE from user where userid=:userid and isAdmin!=1";
 		$param = array(":userid" => $this->getUserid());
 		$dbConnect->deleteData($query, $param);
 		$dbConnect->disconnectDB();

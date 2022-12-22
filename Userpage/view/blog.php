@@ -1,3 +1,10 @@
+<?php
+// if (!isset($_SESSION)) {
+//     session_start();
+
+// }
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -53,7 +60,7 @@
                 </ul>
             </div>
             <div class="header__top__right__auth">
-                <a href="#"><i class="fa fa-user"></i> Login</a>
+                 session_start();
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -119,7 +126,20 @@
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> Login</a>
+                            <?php
+                            if (isset($_SESSION['username'])) {
+                            ?>
+                                <div class="d-flex justify-content-center align-items-center gap-2">
+                                    <a href="#" class=""><?= $_SESSION['username']; ?></a>
+                                    <a class="btn btn-warning ml-2" href="./index.php">Log out</a>
+                                </div>
+                                <?php
+                            } else {
+                            ?>
+                                <a href="./index.php"><i class="fa fa-user" style="font-size:24px;color:black"></i></a>
+                                <?php
+                            }
+                            ?>
                             </div>
                         </div>
                     </div>

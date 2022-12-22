@@ -105,21 +105,21 @@ session_start();
                             </div>
 
                             <div class="header__top__right__auth">
-                          
+
                                 <?php
-                               if (isset($_SESSION['username'])) {
-                               ?>
+                                if (isset($_SESSION['username'])) {
+                                ?>
                                 <div class="d-flex justify-content-center align-items-center gap-2">
                                     <a href="#" class=""><?= $_SESSION['username']; ?></a>
                                     <a class="btn btn-warning ml-2" href="./logout.php">Log out</a>
                                 </div>
                                 <?php
-                               } else {
-                               ?>
-                                <a href="./login.php"><i class="fa fa-user"></i> Login</a>
+                                } else {
+                                ?>
+                                <a href="./login.php"><i class="fa fa-user" style="font-size:24px;color:black"></i>Log In</a>
                                 <?php
-                               }
-                               ?>
+                                }
+                                ?>
 
                             </div>
                         </div>
