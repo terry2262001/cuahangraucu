@@ -19,6 +19,7 @@
       </div>
       <div id="form_dangki">
         <form action="../controller/UserController.php" method="post">
+          
         <input
             type="text"
             placeholder="Tên admin"

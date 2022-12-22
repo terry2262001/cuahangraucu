@@ -38,7 +38,7 @@ if (!isset($_SESSION)) {
   <div class="wrapper">
 
     <!-- Preloader -->
-    <div class="preloader flex-column justify-content-center align-items-center">
+    <div class="">
       <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
     </div>
 
@@ -78,12 +78,12 @@ if (!isset($_SESSION)) {
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #D38566;">
+    <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #7fad39;">
       <!-- Brand Logo -->
       <div class="brand-link">
         <img src="./PICTURE/logo.png" alt="AdminHMK Logo" class="brand-image img-circle elevation-3"
-          style="opacity: .8">
-        <a href="trangchu.php"><span class="brand-text font-weight-light" style="font-weight: 1000!important;">OGANI
+          style="border-radius: 0;">
+        <a href="trangchu.php"><span class="brand-text font-weight-light" style="font-weight: 1000!important;color: #c2c7d0;">OGANI
           </span></a>
         <div>
 
@@ -96,7 +96,31 @@ if (!isset($_SESSION)) {
                 <a class="d-block">Trang sản phẩm</a>
               </div>
             </div>
+            <nav class="mt-2">
+              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                data-accordion="false">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-table"></i>
+                    <p>
+                      Tables
+                      <i class="fas fa-angle-left right"></i>
+                    </p>
+                  </a>
+                  <ul class="">
+                    <li class="nav-item" style="list-style-type:none;">
+                      <a href="../controller/UserController.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>User</p>
+                      </a>
+                    </li>
+                  </ul>
+                  
+                </li>
+              </ul>
+            </nav>
           </div>
+          
           <!-- /.sidebar -->
     </aside>
 
@@ -119,8 +143,9 @@ if (!isset($_SESSION)) {
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_themsp">THÊM SẢN
-                    PHẨM</button>
+                
+                <a  href="../view/them_sanpham.php"><button type="button" class="btn btn-primary" data-toggle="modal" >THÊM SẢN
+                    PHẨM</button></a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -154,41 +179,6 @@ if (!isset($_SESSION)) {
     </aside>
     <!-- /.control-sidebar -->
   </div>
-
-
-  <!-- themsp -->
-  <div class="modal fade" id="modal_themsp" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Sản phẩm</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form action="../PHP/sp_controller.php" method="post">
-            <input type="hidden" name="loaiquanly" value="create" />
-            <input type="text" placeholder="Mã sản phẩm" name="masanpham" id="masanpham" class="margin-top20" />
-            <input type="text" placeholder="Tên sản phẩm" name="tensanpham" id="tensanpham" class="margin-top20" />
-            <input type="number" placeholder="Giá" name="gia" id="gia" class="margin-top20" />
-            <input type="text" placeholder="Chất liệu" name="chat_lieu" id="chat_lieu" class="margin-top20" />
-            <br />
-            <input type="file" id="hinh_sanpham" onchange="select_img('hinh_sanpham','noihienhinhanh')">
-            <span id="noihienhinhanh"></span>
-            <br />
-            <button type="button" onclick="themsanpham()" class="btn btn-primary">Thêm</button>
-            <button type="button" class="btn btn-primary" data-dismiss="modal" id="dong_themsp">Đóng</button>
-          </form>
-        </div>
-        <div class="modal-footer">
-
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- suasp -->
   <button type="button" data-toggle="modal" data-target="#modal_suasp" id="btn_suasp" style="display:none"></button>
   <div class="modal fade" id="modal_suasp" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

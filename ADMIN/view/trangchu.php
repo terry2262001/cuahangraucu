@@ -39,7 +39,7 @@
   <div class="wrapper">
 
     <!-- Preloader -->
-    <div class="preloader flex-column justify-content-center align-items-center">
+    <div class="">
       <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
     </div>
 
@@ -81,14 +81,14 @@
 
     </nav>
     <!-- /.navbar -->
-
+   
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #D38566;">
+    <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #7fad39 ;">
       <!-- Brand Logo -->
       <div class="brand-link">
-        <img src="./PICTURE/logo.png" alt="AdminHMK Logo" class="brand-image img-circle elevation-3"
-          style="opacity: .8">
-        <a href="#"><span class="brand-text font-weight-light" style="font-weight: 1000!important;">OGANI </span></a>
+       </a> <img src="./PICTURE/logo.png" alt="AdminHMK Logo" class="brand-image img-circle elevation-3"
+          style="border-radius: 0;">
+        <a href="#"><span class="brand-text font-weight-light" style="font-weight: 1000!important;color:#c2c7d0;">OGANI </span></a>
         <div>
 
           <!-- Sidebar -->
@@ -125,16 +125,16 @@
                       <i class="fas fa-angle-left right"></i>
                     </p>
                   </a>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
+                  <ul class="">
+                    <li class="nav-item" style="list-style-type:none;">
                       <a href="sanpham.php" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Sản phẩm</p>
                       </a>
                     </li>
                   </ul>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
+                  <ul class="">
+                    <li class="nav-item" style="list-style-type:none;">
                       <a href="./../controller/UserController.php" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>User</p>

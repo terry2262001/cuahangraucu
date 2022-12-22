@@ -73,7 +73,7 @@
 <div class="wrapper">
 
   <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
+  <div class="">
     <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
   </div>
 
@@ -113,13 +113,13 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #D38566;">
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #7fad39;">
     <!-- Brand Logo -->
     <div class="brand-link">
-      <img src="./PICTURE/logo.png" alt="AdminHMK Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <a href="../view/trangchu.php"><span class="brand-text font-weight-light" style="font-weight: 1000!important;">OGANI </span></a>
+      <img src="./PICTURE/logo.png" alt="AdminHMK Logo" class="brand-image img-circle elevation-3" style="border-radius: 0;">
+      <a href="../view/trangchu.php"><span class="brand-text font-weight-light" style="font-weight: 1000!important;color: #c2c7d0;">OGANI </span></a>
     <div>
-
+          
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
@@ -129,7 +129,31 @@
           <a class="d-block"><?php echo $data["title"]?></a>
         </div>
       </div>
+      <nav class="mt-2">
+              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                data-accordion="false">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-table"></i>
+                    <p>
+                      Tables
+                      <i class="fas fa-angle-left right"></i>
+                    </p>
+                  </a>
+                  <ul class="">
+                    <li class="nav-item" style="list-style-type:none;">
+                      <a href="../view/sanpham.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Sản phẩm</p>
+                      </a>
+                    </li>
+                  </ul>
+                  
+                </li>
+              </ul>
+            </nav>
     </div>
+    
     <!-- /.sidebar -->
   </aside>
 
@@ -154,7 +178,7 @@
               <div class="card-header">
               <a  href="../view/userpage.php">
 
-                <button type="button" class="btn btn-primary" data-toggle="modal"> THÊM USER</button>  
+                <button type="button" class="btn btn-primary" data-toggle="modal">Thêm User</button>  
               </a>
                 
               
@@ -168,7 +192,7 @@
                     <th>Tên khách hàng</th>
                     <th>Số điện thoại</th>
                     <th>Email</th>
-                    <th>Status</th>
+                    <th>Stat  us</th>
                     <th style="text-align: center;">Action</th>
                   </tr>
                   </thead>
@@ -183,7 +207,7 @@
                       echo '<td>'.$data["users"][$i]["email"].'</td>';
                       echo '<td>complete</td>';
                       echo '<td>
-                      <a href="../controller/UserController.php?action=edit&id='.$data["users"][$i]["userid"].'"><button onclick="" type="button" class="btn btn-warning" data-toggle="modal" style=" margin-left: 20%; margin-right: 18%; width: auto;"> SỬA</button>
+                      <a href="../controller/UserController.php?action=edit&id='.$data["users"][$i]["userid"].'"><button onclick="" type="button" class="btn btn-warning" data-toggle="modal" style=" margin-left: 20%; margin-right: 18%; width: auto;">SỬA</button>
                       <a href="../controller/UserController.php?action=delete&id='.$data["users"][$i]["userid"].'"><button onclick="" type="button" class="btn btn-danger">XÓA</button>
                       </td>';
                       echo'</tr>';
@@ -202,13 +226,7 @@
       </div>
     </section>
   </div>
-  <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.2.0
-    </div>
-  </footer>
+                    
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
