@@ -222,6 +222,7 @@ class UserModel
 
 	}
 	public function getAllUser(){
+		$data = NULL;
 		$dbConnect = new MySQLUtils();
 		$query = "SELECT userid, username, password, fullname, phone, status, email from user";
 		$data = $dbConnect->getAllData($query);
