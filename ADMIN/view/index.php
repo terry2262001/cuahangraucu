@@ -33,7 +33,7 @@
             class="margin-top20"
           />
         
-        <small style="color:#e74c3c">
+        <small style="color:red">
             <?php
             session_start();
             echo(!empty($_SESSION["err"]))?$_SESSION["err"]:"";
