@@ -27,7 +27,6 @@ include_once '../until/MySQLUtil.php';
     public function setId($id)
     {
         $this->id = $id;
-
         return $this;
     }
 
